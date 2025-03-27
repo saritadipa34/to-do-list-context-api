@@ -1,8 +1,9 @@
+import TodoForm from "./components/TodoBox";
 
 const App=()=>{
   return(
-    <div className="text-4xl">
-app
+    <div>
+<TodoForm />
     </div>
   )
 }

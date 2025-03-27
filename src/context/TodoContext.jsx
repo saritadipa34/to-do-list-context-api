@@ -2,7 +2,7 @@ import { createContext, useState } from "react";
 
 export const TodoContext=createContext()
 
-const TodoProvider=({children})=>{
+export const TodoProvider=({children})=>{
 const [tasks,setTasks]=useState([])
 
     return(
@@ -10,5 +10,4 @@ const [tasks,setTasks]=useState([])
             {children}
         </TodoContext.Provider>
     )
-}
-export default TodoProvider;
+;}
