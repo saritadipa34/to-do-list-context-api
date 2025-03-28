@@ -10,10 +10,18 @@ const TodoBox=()=>{
     const [inputValue,setInputValue]= useState("");
 
 
+    const handleEnter=(e)=>{
+        if(e.key === "Enter"){
+            handleAdd();
+        }
+        console.log("enter")
+    }
+
 const handleDelete=(index)=>{
 const deleted=tasks.filter((task,i)=>{
-    i !== index;
+    return i !== index;
 })
+
 setTasks(deleted);
     console.log(tasks[index])
     console.log("delete")
@@ -40,6 +48,7 @@ const handleAdd=()=>{
         alert("Add a Task")
         return;
     }
+
     setTasks((prev)=>[...prev,inputValue]);
     setInputValue("");
     console.log("add")
@@ -54,7 +63,7 @@ const handleInput=(e)=>{
             <div className="min-h-[100px] w-[350px] bg-yellow-200 p-5">
             <h1 className="text-center bg-blue-400 h-[30px] mb-4">To-do-list</h1>
             <div className="flex justify-between">
-            <InputBox onChange={handleInput} value={inputValue}/>
+            <InputBox onChange={handleInput} onKeyDown={handleEnter} value={inputValue}/>
             <Button text="Save" onClick={handleAdd} className="bg-blue-500" />
             </div>
             <div className="flex flex-col gap-4">
